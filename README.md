@@ -3,11 +3,11 @@ linux command to start postgres when you have permission error:
 
 
 **Starting service**
-sudo -u postgres service postgresql stop
+sudo -u postgres service postgresql start
 
 
 **startup cli**
-sudo -u postgres psql
+sudo -u postgres psql "dbname"
 	--> \c "dbname"
 
 Default postgresql port = 5432
