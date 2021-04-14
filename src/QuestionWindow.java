@@ -1,3 +1,4 @@
+import Handlers.QuestionClicked;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,37 +16,17 @@ public class QuestionWindow {
     private JButton question3Button;
     private JButton question4Button;
     private JTextArea textArea1;
-    private JButton[] questions = {question1Button, question2Button, question3Button, question4Button};
-    private String[] queries = {"SELECT address FROM Person", "SELECT lastname FROM Person", "SELECT firstname FROM Person", "SELECT city FROM Person"};
+    private final JButton[] questions = {question1Button, question2Button, question3Button, question4Button};
+    private final String[] queries = {"SELECT address FROM Person", "SELECT lastname FROM Person", "SELECT firstname FROM Person", "SELECT city FROM Person"};
 
 
     public QuestionWindow(Session s) {
         for (int i=0; i<4; i++){
-            questions[i].addActionListener(new QuestionClickedHandler(i+1, queries[i], s));
+            questions[i].addActionListener(new QuestionClicked(queries[i], s, textArea1));
         }
     }
 
 
-
-
-    private class QuestionClickedHandler implements ActionListener {
-        private int questionNum;
-        private String query;
-        Session s;
-
-        public QuestionClickedHandler(int n, String q, Session s) {
-            questionNum = n;
-            query = q;
-            this.s=s;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent actionEvent) {
-            System.out.println("Trying to query....");
-            Query q = s.createQuery(query);
-            List persons = q.list();
-
-            textArea1.setText(persons.toString());
-        }
-    }
 }
+
+
