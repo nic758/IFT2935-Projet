@@ -12,6 +12,6 @@ sudo -u postgres psql
 
 Default postgresql port = 5432
 
-log4j12 dependancies: org.slf4j/slf4j-log4j12 v1.4.2
+dependencies: org.slf4j/slf4j-log4j12 v1.4.2
 											postgresql v42.2.2.jre7
 											hibernate-entitymanager v3.4.0.GA
