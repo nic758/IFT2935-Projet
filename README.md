@@ -3,7 +3,7 @@ linux command to start postgres when you have permission error:
 
 
 **Starting service**
-sudo -u service postgresql start
+sudo -u postgres service postgresql stop
 
 
 **startup cli**
