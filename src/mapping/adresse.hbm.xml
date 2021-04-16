@@ -1,0 +1,17 @@
+<?xml version="1.0"?><!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<!--Check ??-->
+<hibernate-mapping>
+    <class name="Models.adresse" table="adresse">
+        <composite-id>
+            <key-property name="code_postal" column="code_postal"/>
+            <key-property name="no_entreprise" column="no_entreprise"/>
+            <key-property name="rue_entreprise" column="rue_entreprise"/>
+        </composite-id>
+        
+        <property name="no_entreprise" type="java.lang.String"/>
+
+        <many-to-one name="id_entreprise" column="id_entreprise" class="Models.entreprise"/>
+    </class>
+</hibernate-mapping>

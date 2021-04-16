@@ -1,0 +1,20 @@
+<?xml version="1.0"?><!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+    <class name="Models.stage_1" table="stage_1" check="heures_travailles >= 2 AND 4>= heure_travailles">
+        <id name="date_debut" type="java.sql.Date" column="date_debut">
+            <generator class="native"/>
+        </id>
+        <property name="id_entreprise" type="java.lang.String"/>
+        <property name="matricule_etudiant" type="java.lang.String"/>
+        <property name="matricule_professeur" type="java.lang.String"/>
+        <property name="date_fin" type="java.sql.Date"/>
+        <property name="heures_travailles" type="java.lang.Integer"/>
+
+        <many-to-one name="id_entreprise" column="id_entreprise" class="Models.entreprise"/>
+        <many-to-one name="matricule_etudiant" column="matricule_etudiant" class="Models.Person"/>
+        <many-to-one name="matricule_professeur" column="matricule_professeur" class="Models.Person"/>
+
+    </class>
+</hibernate-mapping>

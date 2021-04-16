@@ -1,0 +1,14 @@
+<?xml version="1.0"?><!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+    <class name="Models.stage_2" table="stage_2" check="salaire_horaire >= 2 AND 6>= salaire_horaire">
+        <id name="poste" type="java.lang.String" column="poste">
+            <generator class="native"/>
+        </id>
+        <property name="salaire_horaire" type="java.lang.Integer"/>
+
+        <many-to-one name="poste" column="poste" class="Models.stage_1"/>
+
+    </class>
+</hibernate-mapping>

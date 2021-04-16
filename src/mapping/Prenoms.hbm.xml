@@ -1,0 +1,12 @@
+<?xml version="1.0"?><!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+    <class name="Models.Prenom" table="prenom">
+        <id name="prenom" type="java.lang.String" column="prenom" >
+            <generator class="native"/>
+        </id>
+        <!--        not sure..-->
+        <many-to-one name="matricule" column="matricule" class="Models.Person"/>
+    </class>
+</hibernate-mapping>

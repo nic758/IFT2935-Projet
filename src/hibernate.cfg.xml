@@ -22,7 +22,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Annotated entity classes -->
-        <mapping resource="Person.hbm.xml"/>
+        <mapping resource="mapping/Person.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

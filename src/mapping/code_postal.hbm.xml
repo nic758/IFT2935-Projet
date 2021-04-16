@@ -1,0 +1,15 @@
+<?xml version="1.0"?><!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<!--Check ??-->
+<hibernate-mapping>
+    <class name="Models.code_postal" table="code_postal">
+        <id name="code_postal" type="java.lang.String" column="code_postal" >
+            <generator class="native"/>
+        </id>
+        <property name="ville" type="java.lang.String"/>
+        <property name="province" type="java.lang.String"/>
+
+        <many-to-one name="code_postal" column="code_postal" class="Models.Person"/>
+    </class>
+</hibernate-mapping>
