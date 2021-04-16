@@ -1,11 +1,15 @@
 package Handlers;
 
+import Models.Person;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.StringWriter;
+import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.List;
 
 public class QuestionClicked implements ActionListener {
@@ -21,10 +25,34 @@ public class QuestionClicked implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
+        textArea.setText("");
         System.out.println("Trying to query....");
-        Query q = s.createQuery(query);
-        List persons = q.list();
+         Query q = s.createQuery(query);
+        List data = q.list();
 
-        textArea.setText(persons.toString());
+        textArea.setText(toString(data));
+    }
+
+    private <T> String toString(List<T> ls){
+        String ret = "";
+        int count = 0;
+        for (T l :ls) {
+            if(count>40)
+            {
+                return ret;
+            }
+
+            try {
+                Object[] ob = (Object[])l;
+                ret += Arrays.toString(ob) + "\n";
+            }catch (Exception e){
+               ret += l.toString() + "\n";
+            }
+
+
+            count++;
+        }
+
+        return ret;
     }
 }

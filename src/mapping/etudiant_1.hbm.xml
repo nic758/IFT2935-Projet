@@ -3,13 +3,13 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
 <!--Check ??-->
 <hibernate-mapping>
-    <class name="Models.etudiant_1" table="etudiant_1" check="(gpa >=0 AND 4.3 >= gpa), credits_completes >= 0">
-        <id name="matricule" type="java.lang.String" column="matricule" >
+    <class name="Models.etudiant_1" table="etudiant_1" check="(gpa >=0 AND 4.3 >= gpa), credits_complete >= 0">
+        <id name="gpa" type="java.lang.Float" column="gpa" >
             <generator class="native"/>
         </id>
         <property name="programme" type="enums.Programme"/>
-        <property name="credit_completes" type="java.lang.Integer"/>
-        <property name="gpa" type="java.lang.Float" />
+        <property name="credits_complete" type="java.lang.Integer"/>
+<!--        <property name="gpa" type="java.lang.Float" />-->
 
         <many-to-one name="matricule" column="matricule" class="Models.Person"/>
     </class>

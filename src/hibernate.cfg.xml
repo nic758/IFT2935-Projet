@@ -23,6 +23,8 @@
 
         <!-- Annotated entity classes -->
         <mapping resource="mapping/Person.hbm.xml"/>
+        <mapping resource="mapping/Prenoms.hbm.xml"/>
+        <mapping resource="mapping/etudiant_1.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

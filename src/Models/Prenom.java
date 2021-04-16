@@ -2,8 +2,8 @@ package Models;
 
 public class Prenom {
 
-    private String prenom;
     private String matricule;
+    private String prenom;
 
     public String getPrenom() {
         return prenom;
@@ -20,4 +20,12 @@ public class Prenom {
     public void setMatricule(String matricule) {
         this.matricule = matricule;
     }
+
+//    @Override
+//    public String toString() {
+//        return "[" +
+//                matricule + ", " +
+//                prenom + ", " +
+//                ']';
+//    }
 }

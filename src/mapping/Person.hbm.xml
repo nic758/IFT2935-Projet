@@ -2,14 +2,15 @@
         PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
 <hibernate-mapping>
-<!--    check may not work, need to be tested.-->
-    <class name="Models.Person" table="personne" check="age_personne >= '1900-01-01'">
+    <class name="Models.Person" table="personne">
         <id name="matricule" type="java.lang.String" column="matricule" >
             <generator class="native"/>
         </id>
+        <property name="nom_personne" type="java.lang.String"/>
         <property name="code_postal" type="java.lang.String"/>
-        <property name="date_naissance" type="java.lang.String"/>
-        <property name="faculte" type="enums.Faculte" />
+        <property name="date_naissance" type="java.sql.Date"/>
+<!--        TODO:fix me!-->
+        <property name="facultes" type="enums.Faculte"/>
         <property name="telephone_personne" type="java.lang.String"/>
         <property name="courriel_personne" type="java.lang.String"/>
         <property name="no_personne" type="java.lang.Integer" />

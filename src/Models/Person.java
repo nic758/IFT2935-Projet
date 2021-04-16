@@ -82,4 +82,18 @@ public class Person implements Serializable {
     public void setNo_personne(int no_personne) {
         this.no_personne = no_personne;
     }
+
+    @Override
+    public String toString() {
+        return "["
+                + matricule + ","
+                + code_postal + ", "
+                + nom_personne + ", "
+                + date_naissance + ", "
+                + facultes + ", "
+                + telephone_personne + ", "
+                + courriel_personne + ", "
+                + no_personne +
+                ']';
+    }
 }
