@@ -1,4 +1,5 @@
 import Handlers.QuestionClicked;
+import Question.Question;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,7 +18,9 @@ public class QuestionWindow {
     private JButton question4Button;
     private JTextArea textArea1;
     private final JButton[] questions = {question1Button, question2Button, question3Button, question4Button};
-    private final String[] queries = {"FROM visite", "FROM Person", "FROM Etudiant", "FROM professeur"};
+
+
+    private final String[] queries = {Question.query1, Question.query2, Question.query3, Question.query4};
 
 
     public QuestionWindow(Session s) {
