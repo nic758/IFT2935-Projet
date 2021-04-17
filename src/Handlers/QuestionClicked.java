@@ -34,11 +34,6 @@ public class QuestionClicked implements ActionListener {
         String ret = "";
         int count = 0;
         for (T l :ls) {
-            if(count>40)
-            {
-                return ret;
-            }
-
             try {
                 Object[] ob = (Object[])l;
                 ret += Arrays.toString(ob) + "\n";
