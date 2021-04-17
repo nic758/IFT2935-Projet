@@ -55,4 +55,16 @@ public class entreprise {
     public void setDomaine(String domaine) {
         this.domaine = domaine;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                id_entreprise + ", " +
+                nom_entreprise + ", " +
+                courriel_entreprise + ", " +
+                telephone_entreprise + ", " +
+                participante + ", "
+                +domaine +
+                '}';
+    }
 }

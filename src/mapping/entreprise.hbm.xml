@@ -11,6 +11,6 @@
         <property name="courriel_entreprise" type="java.lang.String"/>
         <property name="telephone_entreprise" type="java.lang.String"/>
         <property name="participante" type="java.lang.Boolean"/>
-        <property name="domain" type="java.lang.String"/>
+        <property name="domaine" type="java.lang.String"/>
     </class>
 </hibernate-mapping>
