@@ -1,4 +1,4 @@
-package Models;
+package Tables;
 
 public class programmes_departements {
     private String programme;

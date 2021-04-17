@@ -3,12 +3,12 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
 <!--Check ??-->
 <hibernate-mapping>
-    <class name="Models.professeur" table="professeur">
+    <class name="Tables.professeur" table="professeur">
         <id name="matricule" type="java.lang.String" column="matricule" >
             <generator class="native"/>
         </id>
         <property name="discipline" type="java.lang.String"/>
 
-<!--        <many-to-one name="matricule" column="matricule" class="Models.Person"/>-->
+<!--        <many-to-one name="matricule" column="matricule" class="Tables.Person"/>-->
     </class>
 </hibernate-mapping>

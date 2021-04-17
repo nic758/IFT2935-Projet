@@ -3,15 +3,12 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
 <!--Check ??-->
 <hibernate-mapping>
-    <class name="Models.adresse" table="adresse">
+    <class name="Tables.adresse" table="adresses">
         <composite-id>
             <key-property name="code_postal" column="code_postal"/>
             <key-property name="no_entreprise" column="no_entreprise"/>
             <key-property name="rue_entreprise" column="rue_entreprise"/>
+            <key-property name="id_entreprise" column="id_entreprise"/>
         </composite-id>
-        
-        <property name="no_entreprise" type="java.lang.String"/>
-
-        <many-to-one name="id_entreprise" column="id_entreprise" class="Models.entreprise"/>
     </class>
 </hibernate-mapping>

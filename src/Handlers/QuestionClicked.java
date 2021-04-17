@@ -1,14 +1,11 @@
 package Handlers;
 
-import Models.Person;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.StringWriter;
-import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 

@@ -2,10 +2,10 @@
         PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
 <hibernate-mapping>
-    <class name="Models.Prenom" table="prenoms">
+    <class name="Tables.Prenom" table="prenoms">
         <id name="prenom" type="java.lang.String" column="prenom" >
             <generator class="native"/>
         </id>
-        <many-to-one name="matricule" column="matricule" class="Models.Person"/>
+        <many-to-one name="matricule" column="matricule" class="Tables.Person"/>
     </class>
 </hibernate-mapping>

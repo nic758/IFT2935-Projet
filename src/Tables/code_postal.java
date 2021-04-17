@@ -1,4 +1,4 @@
-package Models;
+package Tables;
 
 public class code_postal {
     private String code_postal;

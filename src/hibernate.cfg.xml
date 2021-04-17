@@ -29,5 +29,6 @@
         <mapping resource="mapping/programmes_departement.hbm.xml"/>
         <mapping resource="mapping/code_postal.hbm.xml"/>
         <mapping resource="mapping/entreprise.hbm.xml"/>
+        <mapping resource="mapping/adresse.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

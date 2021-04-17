@@ -1,4 +1,4 @@
-package Models;
+package Tables;
 
 public class entreprise {
     private String id_entreprise;

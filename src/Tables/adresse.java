@@ -1,6 +1,8 @@
-package Models;
+package Tables;
 
-public class adresse {
+import java.io.Serializable;
+
+public class adresse implements Serializable {
     private String id_entreprise;
     private String code_postal;
     private int no_entreprise;
@@ -36,5 +38,15 @@ public class adresse {
 
     public void setRue_entreprise(String rue_entreprise) {
         this.rue_entreprise = rue_entreprise;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                id_entreprise + ", " +
+                code_postal + ", " +
+                no_entreprise + ", "+
+                rue_entreprise + ", " +
+                '}';
     }
 }

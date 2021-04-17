@@ -2,7 +2,7 @@
         PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
 <hibernate-mapping>
-    <class name="Models.Person" table="personne">
+    <class name="Tables.Person" table="personne">
         <id name="matricule" type="java.lang.String" column="matricule" >
             <generator class="native"/>
         </id>

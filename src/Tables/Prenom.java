@@ -1,4 +1,4 @@
-package Models;
+package Tables;
 
 public class Prenom {
 

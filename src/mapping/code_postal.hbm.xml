@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
 <!--Check ??-->
 <hibernate-mapping>
-    <class name="Models.code_postal" table="code_postal">
+    <class name="Tables.code_postal" table="code_postal">
         <id name="code_postal" type="java.lang.String" column="code_postal" >
             <generator class="native"/>
         </id>

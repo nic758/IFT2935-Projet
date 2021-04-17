@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
 <!--Check ??-->
 <hibernate-mapping>
-    <class name="Models.entreprise" table="entreprise">
+    <class name="Tables.entreprise" table="entreprise">
         <id name="id_entreprise" type="java.lang.String" column="id_entreprise" >
             <generator class="native"/>
         </id>
