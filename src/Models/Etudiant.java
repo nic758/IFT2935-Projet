@@ -1,12 +1,10 @@
 package Models;
 
-import enums.Programme;
-
 import java.io.Serializable;
 
 public class Etudiant implements Serializable {
     private String matricule;
-    private Programme programmes;
+    private String programme;
     private int credits_complete;
     private float gpa;
 
@@ -18,12 +16,12 @@ public class Etudiant implements Serializable {
         this.matricule = matricule;
     }
 
-    public Programme getProgramme() {
-        return programmes;
+    public String getProgramme() {
+        return programme;
     }
 
-    public void setProgramme(Programme programme) {
-        this.programmes = programme;
+    public void setProgramme(String programme) {
+        this.programme = programme;
     }
 
     public int getCredits_complete() {
@@ -40,5 +38,15 @@ public class Etudiant implements Serializable {
 
     public void setGpa(float gpa) {
         this.gpa = gpa;
+    }
+
+    @Override
+    public String toString() {
+        return "[" +
+                matricule + ", " +
+                programme + ", " +
+                credits_complete + ", "+
+                gpa +
+                '}';
     }
 }

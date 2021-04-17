@@ -1,6 +1,5 @@
 package Models;
 
-import enums.Faculte;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ public class Person implements Serializable {
     private String code_postal;
     private String nom_personne;
     private Date date_naissance;
-    private Faculte facultes;
+    private String faculte;
     private String telephone_personne;
     private String courriel_personne;
     private int no_personne;
@@ -51,12 +50,12 @@ public class Person implements Serializable {
         this.date_naissance = date_naissance;
     }
 
-    public Faculte getFacultes() {
-        return facultes;
+    public String getFacultes() {
+        return faculte;
     }
 
-    public void setFacultes(Faculte facultes) {
-        this.facultes = facultes;
+    public void setFacultes(String faculte) {
+        this.faculte = faculte;
     }
 
     public String getTelephone_personne() {
@@ -90,7 +89,7 @@ public class Person implements Serializable {
                 + code_postal + ", "
                 + nom_personne + ", "
                 + date_naissance + ", "
-                + facultes + ", "
+                + faculte + ", "
                 + telephone_personne + ", "
                 + courriel_personne + ", "
                 + no_personne +

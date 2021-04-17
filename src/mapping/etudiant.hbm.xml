@@ -8,8 +8,7 @@
             <generator class="native"/>
         </id>
        <property name="gpa" type="java.lang.Float"/>
-<!--        TODO:fix me-->
-<!--        <property name="programmes" type="enums.Programme"/>-->
+        <property name="programme" type="java.lang.String"/>
 
         <property name="credits_complete" column="credits_completes" type="java.lang.Integer"/>
 <!--        <many-to-one name="matricule" column="matricule" class="Models.Person"/>-->
