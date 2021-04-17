@@ -1,0 +1,17 @@
+<?xml version="1.0"?><!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<!--Check ??-->
+<hibernate-mapping>
+    <class name="Models.Etudiant" table="etudiant" >
+        <id name="matricule" type="java.lang.String" column="matricule" >
+            <generator class="native"/>
+        </id>
+       <property name="gpa" type="java.lang.Float"/>
+<!--        TODO:fix me-->
+<!--        <property name="programmes" type="enums.Programme"/>-->
+
+        <property name="credits_complete" column="credits_completes" type="java.lang.Integer"/>
+<!--        <many-to-one name="matricule" column="matricule" class="Models.Person"/>-->
+    </class>
+</hibernate-mapping>

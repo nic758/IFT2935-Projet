@@ -4,9 +4,3 @@
         <param name="useNamed">true</param>
     </type>
 </property>
-<property name="programme" column="programme" >
-<type name="org.hibernate.type.EnumType">
-    <param name="enumClass">net.codejava.hibernate.programme</param>
-    <param name="useNamed">true</param>
-</type>
-</property>

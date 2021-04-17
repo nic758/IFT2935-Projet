@@ -2,9 +2,11 @@ package Models;
 
 import enums.Programme;
 
-public class etudiant_1 {
+import java.io.Serializable;
+
+public class Etudiant implements Serializable {
     private String matricule;
-    private Programme programme;
+    private Programme programmes;
     private int credits_complete;
     private float gpa;
 
@@ -17,11 +19,11 @@ public class etudiant_1 {
     }
 
     public Programme getProgramme() {
-        return programme;
+        return programmes;
     }
 
     public void setProgramme(Programme programme) {
-        this.programme = programme;
+        this.programmes = programme;
     }
 
     public int getCredits_complete() {

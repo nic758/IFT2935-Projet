@@ -17,7 +17,7 @@ public class QuestionWindow {
     private JButton question4Button;
     private JTextArea textArea1;
     private final JButton[] questions = {question1Button, question2Button, question3Button, question4Button};
-    private final String[] queries = {"SELECT matricule, programme, credits_complete, gpa FROM etudiant_1", "FROM Person", "SELECT firstname FROM Person", "SELECT city FROM Person"};
+    private final String[] queries = {"SELECT matricule, credits_complete, gpa FROM Etudiant", "FROM Person", "SELECT firstname FROM Person", "SELECT city FROM Person"};
 
 
     public QuestionWindow(Session s) {
