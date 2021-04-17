@@ -28,4 +28,13 @@ public class code_postal {
     public void setProvince(String province) {
         this.province = province;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                code_postal +", " +
+                ville + ", " +
+                province  +
+                '}';
+    }
 }

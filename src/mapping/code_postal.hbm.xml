@@ -9,7 +9,5 @@
         </id>
         <property name="ville" type="java.lang.String"/>
         <property name="province" type="java.lang.String"/>
-
-        <many-to-one name="code_postal" column="code_postal" class="Models.Person"/>
     </class>
 </hibernate-mapping>
