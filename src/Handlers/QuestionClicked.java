@@ -22,9 +22,9 @@ public class QuestionClicked implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        //textArea.setText("");
+        textArea.setText("");
         System.out.println("Trying to query....");
-         Query q = s.createQuery(query);
+         Query q = s.createSQLQuery(query);
         List data = q.list();
 
         textArea.setText(toString(data));
