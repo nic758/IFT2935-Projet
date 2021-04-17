@@ -9,7 +9,7 @@
         <property name="nom_personne" type="java.lang.String"/>
         <property name="code_postal" type="java.lang.String"/>
         <property name="date_naissance" type="java.sql.Date"/>
-        <property name="facultes"  column="faculte" type="java.lang.String"/>
+        <property name="faculte"  column="faculte" type="java.lang.String"/>
         <property name="telephone_personne" type="java.lang.String"/>
         <property name="courriel_personne" type="java.lang.String"/>
         <property name="no_personne" type="java.lang.Integer" />

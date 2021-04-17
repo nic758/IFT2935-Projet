@@ -26,5 +26,6 @@
         <mapping resource="mapping/Prenoms.hbm.xml"/>
         <mapping resource="mapping/etudiant.hbm.xml"/>
         <mapping resource="mapping/professeur.hbm.xml"/>
+        <mapping resource="mapping/programmes_departement.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

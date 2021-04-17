@@ -50,11 +50,11 @@ public class Person implements Serializable {
         this.date_naissance = date_naissance;
     }
 
-    public String getFacultes() {
+    public String getFaculte() {
         return faculte;
     }
 
-    public void setFacultes(String faculte) {
+    public void setFaculte(String faculte) {
         this.faculte = faculte;
     }
 
