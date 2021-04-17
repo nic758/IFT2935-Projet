@@ -32,5 +32,6 @@
         <mapping resource="mapping/adresse.hbm.xml"/>
         <mapping resource="mapping/stage_1.hbm.xml"/>
         <mapping resource="mapping/stage_2.hbm.xml"/>
+        <mapping resource="mapping/visite.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

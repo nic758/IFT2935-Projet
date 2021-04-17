@@ -1,12 +1,22 @@
 package Tables;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class visite {
+public class visite implements Serializable {
     private String id_entreprise;
     private String matricule_etudiant;
     private Date date_debut;
     private Date date_fin;
+    private Date date_visite;
+
+    public Date getDate_visite() {
+        return date_visite;
+    }
+
+    public void setDate_visite(Date date_visite) {
+        this.date_visite = date_visite;
+    }
 
     public String getId_entreprise() {
         return id_entreprise;
@@ -38,5 +48,16 @@ public class visite {
 
     public void setDate_fin(Date date_fin) {
         this.date_fin = date_fin;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                id_entreprise + ", " +
+                matricule_etudiant + ", " +
+                date_debut +", " +
+                date_fin +", "+
+                date_visite +", "+
+                '}';
     }
 }

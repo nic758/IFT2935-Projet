@@ -3,16 +3,18 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
 <hibernate-mapping>
     <class name="Tables.visite" table="visites" check="date_visite >= date_debut AND date_fin >= date_visite">
-        <id name="id_entreprise" type="java.lang.String" column="id_entreprise">
-            <generator class="native"/>
-        </id>
-        <property name="matricule_etudiant" type="java.lang.String"/>
-        <property name="date_debut" type="java.sql.Date"/>
-        <property name="date_fin" type="java.sql.Date"/>
 
-        <many-to-one name="id_entreprise" column="id_entreprise" class="Tables.entreprise"/>
-        <many-to-one name="matricule_etudiant" column="matricule_etudiant" class="Tables.Etudiant"/>
-        <many-to-one name="date_debut" column="date_debut" class="Tables.stage_1"/>
+        <composite-id>
+            <key-property name="id_entreprise"/>
+            <key-property name="matricule_etudiant"/>
+            <key-property name="date_debut"/>
+        </composite-id>
+
+        <property name="date_fin" type="java.sql.Date"/>
+        <property name="date_visite" type="java.sql.Date"/>
+<!--        <many-to-one name="id_entreprise" column="id_entreprise" class="Tables.entreprise"/>-->
+<!--        <many-to-one name="matricule_etudiant" column="matricule_etudiant" class="Tables.Etudiant"/>-->
+<!--        <many-to-one name="date_debut" column="date_debut" class="Tables.stage_1"/>-->
 
     </class>
 </hibernate-mapping>
