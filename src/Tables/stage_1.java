@@ -66,4 +66,17 @@ public class stage_1 {
     public void setHeures_travailles(int heures_travailles) {
         this.heures_travailles = heures_travailles;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                id_entreprise + ", " +
+                matricule_etudiant + ", " +
+                matricule_professeur + ", " +
+                poste + ", " +
+                date_debut + ", "+
+                date_fin + ", " +
+                heures_travailles +
+                '}';
+    }
 }

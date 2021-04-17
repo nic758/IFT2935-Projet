@@ -30,5 +30,7 @@
         <mapping resource="mapping/code_postal.hbm.xml"/>
         <mapping resource="mapping/entreprise.hbm.xml"/>
         <mapping resource="mapping/adresse.hbm.xml"/>
+        <mapping resource="mapping/stage_1.hbm.xml"/>
+        <mapping resource="mapping/stage_2.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

@@ -8,7 +8,7 @@
         </id>
         <property name="salaire_horaire" type="java.lang.Integer"/>
 
-        <many-to-one name="poste" column="poste" class="Tables.stage_1"/>
+<!--        <many-to-one name="poste" column="poste" class="Tables.stage_1"/>-->
 
     </class>
 </hibernate-mapping>

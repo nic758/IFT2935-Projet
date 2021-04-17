@@ -9,12 +9,13 @@
         <property name="id_entreprise" type="java.lang.String"/>
         <property name="matricule_etudiant" type="java.lang.String"/>
         <property name="matricule_professeur" type="java.lang.String"/>
+        <property name="poste" type="java.lang.String"/>
         <property name="date_fin" type="java.sql.Date"/>
-        <property name="heures_travailles" type="java.lang.Integer"/>
+        <property name="heures_travailles" column="heures_travaullees" type="java.lang.Integer"/>
 
-        <many-to-one name="id_entreprise" column="id_entreprise" class="Tables.entreprise"/>
-        <many-to-one name="matricule_etudiant" column="matricule_etudiant" class="Tables.Person"/>
-        <many-to-one name="matricule_professeur" column="matricule_professeur" class="Tables.Person"/>
+<!--        <many-to-one name="id_entreprise" column="id_entreprise" class="Tables.entreprise"/>-->
+<!--        <many-to-one name="matricule_etudiant" column="matricule_etudiant" class="Tables.Person"/>-->
+<!--        <many-to-one name="matricule_professeur" column="matricule_professeur" class="Tables.Person"/>-->
 
     </class>
 </hibernate-mapping>
