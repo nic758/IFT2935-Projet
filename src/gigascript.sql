@@ -528,12 +528,6 @@ create table adresses
 	primary key(id_entreprise, code_postal, no_entreprise, rue_entreprise)
 );
 
-create table stage_2
-(
-	poste text primary key,
-	salaire_horaire numeric(6,2)
-);
-
 
 create table stage_1
 (
@@ -546,6 +540,14 @@ create table stage_1
 	heures_travaillees numeric(4,2),
 	primary key (date_debut, id_entreprise, matricule_etudiant, matricule_professeur)
 );
+
+
+create table stage_2
+(
+	poste text primary key,
+	salaire_horaire numeric(6,2)
+);
+
 
 create table visites
 (
