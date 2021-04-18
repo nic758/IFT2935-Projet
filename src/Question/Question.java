@@ -1,45 +1,76 @@
 package Question;
 
 public class Question {
-    public static String query1 = "with count_prenoms as (select matricule, count(prenom) as nb_prenoms from\n" +
-            "prenoms group by matricule),\nprenoms_gte_2 as (select matricule from count_prenoms where\n" +
-            "nb_prenoms >= 2),\nmat_performants as (select matricule from etudiant where\n" +
-            "credits_completes >= 30 and gpa >= 3.7)\n select * from prenoms_gte_2 natural join mat_performants;\n";
+    public static String query1 = "WITH\n" +
+            "count_prenoms AS\n" +
+            "(SELECT matricule, count(prenom) AS nb_prenoms FROM prenoms \n" +
+            "GROUP BY matricule),\n" +
+            "prenoms_gte_2 AS\n" +
+            "(SELECT matricule FROM count_prenoms WHERE nb_prenoms >= 2),\n" +
+            "mat_performants AS\n" +
+            "(SELECT matricule FROM etudiant WHERE credits_completes >= 30 \n" +
+            "AND gpa >= 3.7)\n" +
+            "SELECT * FROM prenoms_gte_2 NATURAL JOIN mat_performants;\n";
 
-    public static String query2 = "with curr_stages as (select matricule_professeur, matricule_etudiant, id_entreprise " +
-            "from stage_1 where date_debut > '2021-01-01'),\nnb_students_entreprises as (select matricule_professeur, " +
-            "count(matricule_etudiant) as nb_students, count(id_entreprise) as nb_entreprises from curr_stages group by " +
-            "matricule_professeur), \nbusy_profs as (select matricule_professeur as matricule from " +
-            "nb_students_entreprises where nb_students > 1 and nb_entreprises > 1), \nprofs_mat_disciplines as " +
-            "(select matricule, discipline from professeur), \nbusy_profs_discipline as (select * from busy_profs " +
-            "natural join profs_mat_disciplines), busy_profs_faculte as (select matricule, faculte from " +
-            "busy_profs_discipline natural join programmes_departements), \ninfos as (select nom_personne, " +
-            "courriel_personne, matricule from personne)\n" +
-            "select matricule, nom_personne, courriel_personne, faculte from busy_profs_faculte natural join infos;\n";
+    public static String query2 = "WITH\n" +
+            "curr_stages AS\n" +
+            "(SELECT matricule_professeur, matricule_etudiant, id_entreprise FROM stage_1 WHERE date_debut > '2021-01-01'),\n" +
+            "nb_students_entreprises AS\n" +
+            "(SELECT matricule_professeur, count(matricule_etudiant) AS nb_students, count(id_entreprise) AS nb_entreprises FROM curr_stages GROUP BY matricule_professeur),\n" +
+            "busy_profs AS\n" +
+            "(SELECT matricule_professeur AS matricule FROM nb_students_entreprises WHERE nb_students > 1 AND nb_entreprises > 1),\n" +
+            "profs_mat_disciplines AS\n" +
+            "(SELECT matricule, discipline FROM professeur), \n" +
+            "busy_profs_discipline AS\n" +
+            "(SELECT * FROM busy_profs NATURAL JOIN profs_mat_disciplines), \n" +
+            "infos AS\n" +
+            "(SELECT nom_personne, courriel_personne, matricule FROM personne) \n" +
+            "SELECT matricule, nom_personne, courriel_personne, discipline FROM busy_profs_discipline NATURAL JOIN infos;\n";
 
-    public static String query3 ="with stages_5ans as (select id_entreprise, matricule_etudiant, date_debut from " +
-            "stage_1\nwhere date_debut > '2016-01-01'),\netudiants_sec  as (select matricule from etudiant " +
-            "where programme = 'Securite interieure'),\nstages_etudiants_sec as (select id_entreprise, " +
-            "matricule_etudiant, date_debut from stages_5ans inner join etudiants_sec on (matricule = " +
-            "matricule_etudiant)),\nnb_stagiaires as (select id_entreprise, count(matricule_etudiant) as " +
-            "nb_etudiants from stages_etudiants_sec group by id_entreprise),\nid_entreprises as (select id_entreprise " +
-            "from nb_stagiaires where nb_etudiants >= 1),\ninfos_entreprise as (select entreprise.id_entreprise, " +
-            "nom_entreprise, courriel_entreprise, code_postal from entreprise inner join adresses on " +
-            "(entreprise.id_entreprise = adresses.id_entreprise)),\n codes_quebec as (select code_postal from " +
-            "code_postal where province like 'Qu%'),\nid_quebec as (select id_entreprise from infos_entreprise natural " +
-            "join codes_quebec),\ninfos_quebec as (select infos_entreprise.id_entreprise, nom_entreprise, " +
-            "courriel_entreprise from infos_entreprise natural join id_quebec)\nselect * from infos_quebec natural " +
-            "join id_entreprises;";
+    public static String query3 ="WITH\n" +
+            "stages_5ans AS\n" +
+            "(SELECT id_entreprise, matricule_etudiant, date_debut FROM stage_1 WHERE date_debut > '2016-01-01'),\n" +
+            "etudiants_sec AS\n" +
+            "(SELECT matricule FROM etudiant WHERE programme = 'Securite interieure'),\n" +
+            "stages_etudiants_sec AS\n" +
+            "(SELECT id_entreprise, matricule_etudiant, date_debut FROM stages_5ans INNER JOIN etudiants_sec ON (matricule = matricule_etudiant)),\n" +
+            "nb_stagiaires AS\n" +
+            "(SELECT id_entreprise, count(matricule_etudiant) AS nb_etudiants FROM stages_etudiants_sec GROUP BY id_entreprise),\n" +
+            "id_entreprises AS\n" +
+            "(SELECT id_entreprise FROM nb_stagiaires WHERE nb_etudiants >= 2),\n" +
+            "code_postal_adresses AS\n" +
+            "(SELECT id_entreprise, code_postal FROM adresses),\n" +
+            "codes_quebec AS\n" +
+            "(SELECT code_postal FROM code_postal WHERE province LIKE 'Qu%'),\n" +
+            "id_quebec AS\n" +
+            "(SELECT id_entreprise FROM code_postal_adresses NATURAL JOIN codes_quebec),\n" +
+            "id_cp_selected_entreprises AS\n" +
+            "(SELECT * FROM id_entreprises NATURAL JOIN id_quebec),\n" +
+            "infos_entreprise AS\n" +
+            "(SELECT id_entreprise, nom_entreprise, courriel_entreprise FROM entreprise)\n" +
+            "SELECT * FROM id_cp_selected_entreprises NATURAL JOIN infos_entreprise;\n";
 
-    public static String query4 = "with id_mat_stages as (select id_entreprise, matricule_etudiant, " +
-            "matricule_professeur from stage_1),\nid_mat_visites as (select id_entreprise, matricule_etudiant, " +
-            "date_visite from visites),\nstages_visites as (select matricule_professeur, date_visite from id_mat_stages" +
-            " natural join id_mat_visites),\ncount_visites as (select matricule_professeur, count(date_visite) as\n" +
-            "nb_visites from stages_visites group by matricule_professeur),\nvisits_gt_3 as " +
-            "(select matricule_professeur from count_visites where nb_visites > 3),\n" +
-            "stages_mat_etudiant as (select matricule_etudiant from stage_1),\netudiants_visites as (select " +
-            "matricule_etudiant as matricule from visits_gt_3 natural join stages_mat_etudiant),\n" +
-            "etudiants_programmes as (select matricule, programme from etudiant),\n" +
-            "etudiants_programmes_visites as (select * from etudiants_visites natural join etudiants_programmes)\n" +
-            "select programme, count(matricule) as nb_etudiants from  Etudiants_programmes_visites group by programme;\n";
+    public static String query4 = "WITH    \n" +
+            "id_mat_stages AS\n" +
+            "(SELECT id_entreprise, matricule_etudiant, matricule_professeur FROM stage_1),\n" +
+            "id_mat_visites AS\n" +
+            "(SELECT id_entreprise, matricule_etudiant, date_visite FROM visites),\n" +
+            "stages_visites AS\n" +
+            "(SELECT matricule_professeur, date_visite \n" +
+            "FROM id_mat_stages NATURAL JOIN id_mat_visites),\n" +
+            "count_visites AS\n" +
+            "(SELECT matricule_professeur, count(date_visite) AS\n" +
+            "nb_visites FROM stages_visites GROUP BY matricule_professeur),\n" +
+            "visits_gt_3 AS\n" +
+            "(SELECT matricule_professeur FROM count_visites\n" +
+            "WHERE nb_visites > 3),\n" +
+            "stages_mat_etudiant AS\n" +
+            "(SELECT matricule_etudiant FROM stage_1),\n" +
+            "etudiants_visites AS\n" +
+            "(SELECT matricule_etudiant as matricule FROM visits_gt_3 NATURAL JOIN stages_mat_etudiant),\n" +
+            "etudiants_programmes AS\n" +
+            "(SELECT matricule, programme FROM etudiant),\n" +
+            "etudiants_programmes_visites AS\n" +
+            "(SELECT * FROM etudiants_visites NATURAL JOIN etudiants_programmes)\n" +
+            "SELECT programme, count(matricule) AS nb_etudiants FROM etudiants_programmes_visites GROUP BY programme;\n";
 }
