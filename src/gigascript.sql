@@ -538,7 +538,7 @@ create table stage_1
 	date_debut date not null,
 	date_fin date,
 	heures_travaillees numeric(4,2),
-	primary key (date_debut, id_entreprise, matricule_etudiant, matricule_professeur)
+	primary key (date_debut, id_entreprise, matricule_etudiant)
 );
 
 
